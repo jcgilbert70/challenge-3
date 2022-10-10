@@ -15,7 +15,7 @@
 */
 
 // possible character arrays
-var specialChar = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?", "~"];
+var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", ",", ".", "/", "<", ">", "?", "{", "}", "[", "]", "~"];
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -32,7 +32,7 @@ alert("Click on Generate Password to begin your random password creation")
 
 // (#1) prompt password creation
 function generatePassword() {
-    console.log("button pressed")
+    console.log("Generate Password button pressed")
     // (#1-a user entered password length)
     var confirmLength = (prompt("Please enter how many characters will your password contain"));
     console.log("User selected " + confirmLength + " characters for password")
@@ -94,7 +94,7 @@ function generatePassword() {
     }
 
     // just lists the full array of available variables for password generation
-    console.log("full list of all variables used to create password: " + passwordChar)
+    console.log("full list of all variables used to create the random password: " + passwordChar)
 
     // code to fill randomPassword in loop from available variables
     var randomPassword = ""
@@ -118,5 +118,5 @@ function writePassword() {
 
 }
 
-//Event Listener to prompt questions when button pushed
+//event listener to prompt questions when button pushed
 document.querySelector("#generate").addEventListener("click", writePassword);
