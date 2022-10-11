@@ -1,6 +1,6 @@
 //Assignment Code
 
-/*
+/*   pseudo code for referencing
 #1 prompt user for the password criteia
     a) password length 8 < 128
     b) include special characters
@@ -29,6 +29,7 @@ function generatePassword() {
     // (#1-a user entered password length)
     var confirmLength = (prompt("Please enter how many characters will your password contain"));
     console.log("User selected " + confirmLength + " characters for password")
+
     while (confirmLength < 8 || confirmLength > 128) {
         alert("Must select length for password between 8 and 128 characters");
         var confirmLength = (prompt("How many characters will your password contain"));
@@ -53,48 +54,54 @@ function generatePassword() {
     // (#2) validates viable options were selected or returns message to try again
     while (confirmSpecialChar === false && confirmNumericChar === false && confirmLowercase === false & confirmUppercase === false) {
         alert("You must select at least one option for your password")
+
+        // if all were false, re-attempts to confirm special characters, numbers, uppercase, and lowercase 
         var confirmSpecialChar = confirm("Click OK to confrim if your password will include special characters");
         console.log("did user add special characters: " + confirmSpecialChar)
+
         var confirmNumericChar = confirm("Click OK to confrim if your password will include numeric characters");
         console.log("did user add numbers: " + confirmNumericChar)
+
         var confirmLowercase = confirm("Click OK to confrim if your password will include lowercase characters");
         console.log("did user add lowercase characters: " + confirmLowercase)
+
         var confirmUppercase = confirm("Click OK to confrim if your password will include uppercase characters");
         console.log("did user add uppercase characters: " + confirmUppercase)
     }
 
-    // (#3-a) collecting all variables from arrays based on users decisions
-    var passwordChar = []
+    // (#3-a) collecting all variables from arrays based on users decisions into new concatenated array
+    var passwordVariables = []
+
     // if password will contain special characters is true bring in array for use
     if (confirmSpecialChar) {
-        passwordChar = passwordChar.concat(specialChar)
+        passwordVariables = passwordVariables.concat(specialChar)
         console.log("special characters added, show all elements in array: " + specialChar)
     }
     // if password will contain numbers is true bring in array for use
     if (confirmNumericChar) {
-        passwordChar = passwordChar.concat(numbers)
+        passwordVariables = passwordVariables.concat(numbers)
         console.log("numbers added, show all elements in array: " + numbers)
     }
     // if password will contain lowercase characters is true bring in array for use
     if (confirmLowercase) {
-        passwordChar = passwordChar.concat(lowercase)
+        passwordVariables = passwordVariables.concat(lowercase)
         console.log("lowercase characters added, show all elements in array: " + lowercase)
     }
     // if password will contain uppercase characters is true bring in array for use
     if (confirmUppercase) {
-        passwordChar = passwordChar.concat(uppercase)
+        passwordVariables = passwordVariables.concat(uppercase)
         console.log("uppercase characters added, show all elements in array: " + uppercase)
     }
 
     // just lists the full array of available variables for password generation
-    console.log("full list of all variables used to create the random password: " + passwordChar)
+    console.log("full list of all variables used to create the random password: " + passwordVariables)
 
     // code to fill randomPassword in loop from available variables
     var randomPassword = ""
 
     // (#3-b) generates password per legth given by user, by randomly selecting from variables made available by user
     for (var i = 0; i < confirmLength; i++) {
-        randomPassword = randomPassword + passwordChar[Math.floor(Math.random() * passwordChar.length)];
+        randomPassword = randomPassword + passwordVariables[Math.floor(Math.random() * passwordVariables.length)];
         console.log(randomPassword)
     }
 
@@ -102,13 +109,12 @@ function generatePassword() {
     return randomPassword;
 }
 
-// Write password to the #password input
+// Write password to the #password input text area
 function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
-
 }
 
 //event listener to prompt questions when button pushed
