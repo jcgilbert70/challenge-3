@@ -26,45 +26,41 @@ alert("Click on Generate Password to begin your random password creation")
 // (#1) prompt password creation
 function generatePassword() {
     console.log("Generate Password button pressed")
+
     // (#1-a user entered password length)
-    var confirmLength = (prompt("Please enter how many characters will your password contain"));
-    console.log("User selected " + confirmLength + " characters for password")
+    // set confirmLength variable outside of paramiters to go through loop, display prompt, then let user go through the while loop until valid entry
+    var confirmLength = 0
 
     while (confirmLength < 8 || confirmLength > 128) {
         alert("Must select length for password between 8 and 128 characters");
-        var confirmLength = (prompt("How many characters will your password contain"));
+        var confirmLength = (prompt("Please enter how many characters will your password contain"));
+        console.log("User chose password length of: " + confirmLength)
     }
 
-    // (#1-b) user picks to use special characters
-    var confirmSpecialChar = confirm("Click OK to confrim if your password will include special characters");
-    console.log("did user add special characters: " + confirmSpecialChar)
-
-    //  (#1-c) user picks to use numbers
-    var confirmNumericChar = confirm("Click OK to confrim if your password will include numeric characters");
-    console.log("did user add numbers: " + confirmNumericChar)
-
-    // (#1-d) user picks to use lowercase characters
-    var confirmLowercase = confirm("Click OK to confrim if your password will include lowercase characters");
-    console.log("did user add lowercase characters: " + confirmLowercase)
-
-    // (#1-e) user picks to use uppercase characters
-    var confirmUppercase = confirm("Click OK to confrim if your password will include uppercase characters");
-    console.log("did user add uppercase characters: " + confirmUppercase)
+    // set the variable values to false to display the alert message then let user go through loop until valid entry, this change got rid of several lines of duplicate code
+    var confirmSpecialChar = false
+    var confirmNumericChar = false
+    var confirmLowercase = false
+    var confirmUppercase = false
 
     // (#2) validates viable options were selected or returns message to try again
     while (confirmSpecialChar === false && confirmNumericChar === false && confirmLowercase === false & confirmUppercase === false) {
-        alert("You must select at least one option for your password")
+        alert("Please select at least one option for your password")
 
         // if all were false, re-attempts to confirm special characters, numbers, uppercase, and lowercase 
+        // (#1-b) user picks to use special characters
         var confirmSpecialChar = confirm("Click OK to confrim if your password will include special characters");
         console.log("did user add special characters: " + confirmSpecialChar)
 
+        //  (#1-c) user picks to use numbers
         var confirmNumericChar = confirm("Click OK to confrim if your password will include numeric characters");
         console.log("did user add numbers: " + confirmNumericChar)
 
+        // (#1-d) user picks to use lowercase characters
         var confirmLowercase = confirm("Click OK to confrim if your password will include lowercase characters");
         console.log("did user add lowercase characters: " + confirmLowercase)
 
+        // (#1-e) user picks to use uppercase characters
         var confirmUppercase = confirm("Click OK to confrim if your password will include uppercase characters");
         console.log("did user add uppercase characters: " + confirmUppercase)
     }
