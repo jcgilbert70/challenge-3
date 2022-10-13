@@ -21,19 +21,19 @@ var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 // alert to inform user how to begin
-alert("Click on Generate Password to begin your random password creation")
+alert("Click on Generate Password to begin selecting your password generation specifications")
 
 // (#1) prompt password creation
 function generatePassword() {
     console.log("Generate Password button pressed")
-
+    
     // (#1-a user entered password length)
     // set confirmLength variable outside of paramiters to go through loop, display prompt, then let user go through the while loop until valid entry
     var confirmLength = 0
 
     while (confirmLength < 8 || confirmLength > 128) {
-        alert("Must select length for password between 8 and 128 characters");
-        var confirmLength = (prompt("Please enter how many characters will your password contain"));
+        alert("Please select a length for password between 8 and 128 characters");
+        var confirmLength = (prompt("Click OK to confirm length of password"));
         console.log("User chose password length of: " + confirmLength)
     }
 
