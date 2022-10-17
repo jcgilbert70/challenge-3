@@ -45,7 +45,7 @@ function generatePassword() {
 
     // (#2) validates viable options were selected or returns message to try again
     while (confirmSpecialChar === false && confirmNumericChar === false && confirmLowercase === false & confirmUppercase === false) {
-        alert("Please select at least one option for your password")
+        alert("Please select at least one option of special characters, numbers, lowercase characters, and uppercase characters to be included in your random password")
 
         // if all were false, re-attempts to confirm special characters, numbers, uppercase, and lowercase 
         // (#1-b) user picks to use special characters
